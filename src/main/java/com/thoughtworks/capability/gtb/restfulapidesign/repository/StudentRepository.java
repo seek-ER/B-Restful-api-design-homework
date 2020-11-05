@@ -4,9 +4,12 @@ import com.thoughtworks.capability.gtb.restfulapidesign.bo.StudentBO;
 import com.thoughtworks.capability.gtb.restfulapidesign.dao.StudentDAO;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 
 @Repository
 public class StudentRepository {
@@ -26,5 +29,14 @@ public class StudentRepository {
 
     public void deleteStudent(Integer id) {
         studentMap.remove(id);
+    }
+
+    public List<StudentDAO> getStudents(String gender) {
+        if (gender == null){
+            return new ArrayList<>(studentMap.values());
+        }
+        return studentMap.values().stream()
+                .filter(studentDAO -> studentDAO.getGender().equals(gender))
+                .collect(Collectors.toList());
     }
 }

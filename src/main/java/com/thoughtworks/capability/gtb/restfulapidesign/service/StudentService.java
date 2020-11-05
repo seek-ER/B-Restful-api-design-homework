@@ -5,6 +5,8 @@ import com.thoughtworks.capability.gtb.restfulapidesign.dao.StudentDAO;
 import com.thoughtworks.capability.gtb.restfulapidesign.repository.StudentRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class StudentService {
     private final StudentRepository studentRepository;
@@ -19,5 +21,9 @@ public class StudentService {
 
     public void deleteStudent(Integer id) {
         studentRepository.deleteStudent(id);
+    }
+
+    public List<StudentDAO> getStudents(String gender) {
+        return studentRepository.getStudents(gender);
     }
 }

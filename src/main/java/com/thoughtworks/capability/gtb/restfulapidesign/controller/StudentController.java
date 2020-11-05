@@ -6,6 +6,8 @@ import com.thoughtworks.capability.gtb.restfulapidesign.service.StudentService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/students")
 public class StudentController {
@@ -25,5 +27,11 @@ public class StudentController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteStudent(@PathVariable Integer id){
         studentService.deleteStudent(id);
+    }
+
+    @GetMapping
+    @ResponseStatus(HttpStatus.OK)
+    public List<StudentDAO> getStudents(@RequestParam(value = "gender",required = false) String gender ){
+        return studentService.getStudents(gender);
     }
 }
