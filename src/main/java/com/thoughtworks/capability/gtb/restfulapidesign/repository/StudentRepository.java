@@ -39,4 +39,8 @@ public class StudentRepository {
                 .filter(studentDAO -> studentDAO.getGender().equals(gender))
                 .collect(Collectors.toList());
     }
+
+    public StudentDAO getOneStudent(Integer id) {
+        return studentMap.get(id);
+    }
 }

@@ -26,4 +26,8 @@ public class StudentService {
     public List<StudentDAO> getStudents(String gender) {
         return studentRepository.getStudents(gender);
     }
+
+    public StudentDAO getOneStudent(Integer id) {
+        return studentRepository.getOneStudent(id);
+    }
 }

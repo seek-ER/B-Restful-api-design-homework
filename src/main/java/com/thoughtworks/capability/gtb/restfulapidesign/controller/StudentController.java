@@ -34,4 +34,10 @@ public class StudentController {
     public List<StudentDAO> getStudents(@RequestParam(value = "gender",required = false) String gender ){
         return studentService.getStudents(gender);
     }
+
+    @GetMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public StudentDAO getOneStudent(@PathVariable Integer id){
+        return studentService.getOneStudent(id);
+    }
 }
