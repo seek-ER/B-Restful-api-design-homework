@@ -23,4 +23,8 @@ public class StudentRepository {
         studentMap.put(addedStudent.getId(),addedStudent);
         return addedStudent;
     }
+
+    public void deleteStudent(Integer id) {
+        studentMap.remove(id);
+    }
 }

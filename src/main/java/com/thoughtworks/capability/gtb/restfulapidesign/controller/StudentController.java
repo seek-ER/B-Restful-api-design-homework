@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/students")
 public class StudentController {
-    private StudentService studentService;
+    private final StudentService studentService;
 
     public StudentController(StudentService studentService){
         this.studentService = studentService;
@@ -19,5 +19,11 @@ public class StudentController {
     @ResponseStatus(HttpStatus.CREATED)
     public StudentDAO addStudent(@RequestBody StudentBO studentBO){
         return studentService.addStudent(studentBO);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteStudent(@PathVariable Integer id){
+        studentService.deleteStudent(id);
     }
 }

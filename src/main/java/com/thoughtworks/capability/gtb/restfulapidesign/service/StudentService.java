@@ -16,4 +16,8 @@ public class StudentService {
     public StudentDAO addStudent(StudentBO studentBO) {
         return studentRepository.addStudent(studentBO);
     }
+
+    public void deleteStudent(Integer id) {
+        studentRepository.deleteStudent(id);
+    }
 }
