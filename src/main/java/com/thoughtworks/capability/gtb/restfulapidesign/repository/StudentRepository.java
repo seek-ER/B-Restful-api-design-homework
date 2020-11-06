@@ -46,6 +46,9 @@ public class StudentRepository {
 
     public StudentDAO updateStudent(Integer id, StudentBO studentBO) {
         StudentDAO updatingStudent = studentMap.get(id);
+        if (updatingStudent == null){
+            return null;
+        }
         if (studentBO.getName() != null){
             updatingStudent.setName(studentBO.getName());
         }
