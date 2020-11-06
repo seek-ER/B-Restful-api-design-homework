@@ -22,7 +22,7 @@ public class GroupService {
 
     public List<GroupDAO> grouping() {
         List<StudentDAO> students = studentRepository.getStudents(null);
-        List<GroupDAO> groups = groupRepository.getGroups();
+        List<GroupDAO> groups = new ArrayList<>(groupRepository.getGroups().values());
         groups.forEach(groupDAO -> groupDAO.setStudentDAOS(new ArrayList<>()));
         List<Integer> pendingGroupStudentId = students.stream().map(StudentDAO::getId).collect(Collectors.toList());
         for (int i = 0; i < students.size(); i++) {
