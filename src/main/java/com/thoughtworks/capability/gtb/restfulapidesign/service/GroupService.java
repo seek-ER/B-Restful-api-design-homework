@@ -40,4 +40,8 @@ public class GroupService {
     public GroupDAO updateGroupName(Integer groupId, String newGroupName) {
         return groupRepository.updateGroupName(groupId, newGroupName);
     }
+
+    public List<List<StudentDAO>> getGroupingList() {
+        return groupRepository.getGroupingList();
+    }
 }

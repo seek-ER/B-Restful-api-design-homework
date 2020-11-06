@@ -1,6 +1,7 @@
 package com.thoughtworks.capability.gtb.restfulapidesign.controller;
 
 import com.thoughtworks.capability.gtb.restfulapidesign.dao.GroupDAO;
+import com.thoughtworks.capability.gtb.restfulapidesign.dao.StudentDAO;
 import com.thoughtworks.capability.gtb.restfulapidesign.service.GroupService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -26,5 +27,11 @@ public class GroupController {
     @ResponseStatus(HttpStatus.OK)
     public GroupDAO updateGroupName(@PathVariable Integer id, @RequestParam(value = "name") String newGroupName) {
         return groupService.updateGroupName(id, newGroupName);
+    }
+
+    @GetMapping("/lists")
+    @ResponseStatus(HttpStatus.OK)
+    public List<List<StudentDAO>> getGroupingList() {
+        return groupService.getGroupingList();
     }
 }
