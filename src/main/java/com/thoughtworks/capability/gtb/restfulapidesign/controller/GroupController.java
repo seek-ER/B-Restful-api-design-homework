@@ -3,10 +3,7 @@ package com.thoughtworks.capability.gtb.restfulapidesign.controller;
 import com.thoughtworks.capability.gtb.restfulapidesign.dao.GroupDAO;
 import com.thoughtworks.capability.gtb.restfulapidesign.service.GroupService;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,5 +20,11 @@ public class GroupController {
     @ResponseStatus(HttpStatus.OK)
     public List<GroupDAO> grouping() {
         return groupService.grouping();
+    }
+
+    @PatchMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public GroupDAO updateGroupName(@PathVariable Integer id, @RequestParam(value = "name") String newGroupName) {
+        return groupService.updateGroupName(id, newGroupName);
     }
 }

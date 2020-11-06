@@ -26,4 +26,9 @@ public class GroupRepository {
     public Map<Integer, GroupDAO> getGroups() {
         return groups;
     }
+
+    public GroupDAO updateGroupName(Integer groupId, String newGroupName) {
+        groups.get(groupId).setName(newGroupName);
+        return groups.get(groupId);
+    }
 }

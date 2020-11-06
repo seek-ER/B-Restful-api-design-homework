@@ -36,4 +36,8 @@ public class GroupService {
         int deleteIndex = (int) (Math.random() * pendingGroupStudentId.size());
         return pendingGroupStudentId.remove(deleteIndex);
     }
+
+    public GroupDAO updateGroupName(Integer groupId, String newGroupName) {
+        return groupRepository.updateGroupName(groupId, newGroupName);
+    }
 }
