@@ -30,4 +30,8 @@ public class StudentService {
     public StudentDAO getOneStudent(Integer id) {
         return studentRepository.getOneStudent(id);
     }
+
+    public StudentDAO updateStudent(Integer id, StudentBO studentBO) {
+        return studentRepository.updateStudent(id,studentBO);
+    }
 }

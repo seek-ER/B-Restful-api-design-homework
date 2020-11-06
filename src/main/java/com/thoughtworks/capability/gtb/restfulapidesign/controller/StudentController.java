@@ -40,4 +40,10 @@ public class StudentController {
     public StudentDAO getOneStudent(@PathVariable Integer id){
         return studentService.getOneStudent(id);
     }
+
+    @PutMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public StudentDAO updateStudent(@RequestBody StudentBO studentBO,@PathVariable Integer id){
+        return studentService.updateStudent(id,studentBO);
+    }
 }
